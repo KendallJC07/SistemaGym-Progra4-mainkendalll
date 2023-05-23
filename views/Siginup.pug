@@ -1,0 +1,33 @@
+extends ./main.pug
+block content
+
+
+    if errors 
+        ul
+        each error in errors
+            .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+                | #{error.Text}
+                button.close(type='button', data-dismiss='alert', aria-label='Close')
+                    span(aria-hidden='true') &times;
+
+
+    .row
+        .col-md-4.mx-auto
+            .card.mt-5.bg-dark.text-white.rounded
+                .card-header.pt-5
+                    h4.text-center
+                        | Account Register
+                    .card-body
+                    form(action='/users/signup', method='POST')
+                        .mb-3
+                            label(for='name') Name:
+                            input.form-control.bg-dark.text-white(type='text', name='name', placeholder='Name')
+                        .mb-3
+                            label(for='email') Email:
+                            input.form-control.bg-dark.text-white(type='email', name='email', placeholder='Email')
+                        .mb-3
+                            label(for='password') Password
+                            input.form-control.bg-dark.text-white(type='password', name='password', placeholder='Password')
+                        button.btn.btn-info.w-100(type='submit')
+                            | Signup
+                    

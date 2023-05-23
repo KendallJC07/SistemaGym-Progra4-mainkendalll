@@ -1,0 +1,26 @@
+extends ./main.pug
+block content
+
+   .row
+      .col-md-4.mx-auto
+         .card.mt-5.bg-dark.text-white.rounded
+            .card-header.text-center.pt-5
+               h1.h4.text-white
+                  | Account Login
+               .card-body
+               form(action='/users/signin', method='POST')
+                  .mb-3
+                     label(for='email') Email:
+                     input.form-control.bg-dark.text-white(type='email', name='email', placeholder='Email', autofocus='')
+                  .mb-3
+                     label(for='passswore') Password:
+                     input.form-control.bg-dark.text-white(type='password', name='password', placeholder='Password')
+                  button.btn.btn-success.btn-block
+                     | Signin
+               p.text-center
+                  | Create your account 
+                  a.text-info(href='./signup') Register
+
+
+
+

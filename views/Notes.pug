@@ -1,0 +1,33 @@
+extends ./main.pug
+block content
+
+
+    .row
+        each note in notes
+            table.table.table-bordered.table-hover.table-dark
+                thead
+                    tr
+                        th Title
+                        th Description
+                        th dia
+                        th peso
+                        th Operations
+                tbody
+                    tr
+                        td 
+                            strong #{note.title}
+                        td #{note.description}
+                        td #{note.date}
+                        td #{note.Peso}
+                        td 
+                            a(href = '/notes/edit/'+note._id) 
+                                i.fas.fa-edit
+                                
+                            a(href ='/notes/delete-note/'+note._id)     
+                                i.far.fa-trash-alt.fa-sm
+        else
+            .card.mx-auto
+                .card-body
+                    p(clsss='lead') You don't have exercises yet.
+                        a.btn.btn-success.btn-block(href='/notes/addNote') Create One!
+

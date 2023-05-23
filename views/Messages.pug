@@ -1,0 +1,18 @@
+if mgs_success
+    ul
+    each success in mgs_success
+        .alert.alert-success.alert-dismissible.fade.show(role='alert')
+            | #{mgs_success}
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+
+if mgs_error
+    ul
+    each errormgs in mgs_error
+        .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+            | #{mgs_error}
+            button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+
+
+

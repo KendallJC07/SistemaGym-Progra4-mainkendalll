@@ -1,0 +1,30 @@
+
+extends ./main.pug
+block content
+
+  if errors 
+    ul
+    each error in errors
+      .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+        | #{error.Text}
+        button.close(type='button', data-dismiss='alert', aria-label='Close')
+          span(aria-hidden='true') &times;
+      
+  .col-md-4.mx-auto
+    .card
+      .card-header.bg-dark.text-center
+        h3.text-white New Note
+      .card-body.text-right
+        form(action='/New-note', method='POST')
+          .mb-3
+            input.form-control(type='text', name='title', placeholder='Exercise', autofocus='')
+          .mb-3
+            input.form-control(type='date', name='date', placeholder='date', autofocus='') 
+          .mb-3
+            input.form-control(name='description', placeholder='repetitions')
+          .mb-3
+            input.form-control(name='Peso', placeholder='weight')
+          button.btn.btn-primary.w-100(type='submit')
+            | Save
+
+
